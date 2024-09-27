@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php
+    require_once('DBconnect.php');
+    session_start();
+    ?>
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: top;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .welcome-message {
+            background-color: #1b5b00;
+            color: #ff0000;
+            padding: 10px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            text-align: center;
+            width: 100%;
+        
+        }
+        .welcome-message2 {
+            background-color: #ffffff;
+            color: #ff0000;
+            padding: 10px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            text-align: center;
+            width: 70%;
+        
+        }
+        .developer {
+            background-color: #d7d7d7;
+            color: #009721;
+            padding: 10px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            text-align: center;
+            width: 70%;
+        
+        }
+        .login-box {
+            background-color: #ffffff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+        }
+        .login-box h2 {
+            margin-bottom: 20px;
+        }
+        .login-box input[type="phone"],
+        .login-box input[type="text"],
+        .login-box input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 100px;
+        }
+        .login-box input[type="submit"] {
+            background-color: #147700;
+            color: #ffffff;
+            border: none;
+            padding: 10px 30px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        .page-links-box {
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            width: 50%;
+            text-align: center;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .page-links-box a {
+            color: #1b5b00;
+            text-decoration: none;
+            margin: 0;
+        }
+        .page-links-box3 {
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            width: 25%;
+            text-align: center;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .page-links-box3 a {
+            color: #1b5b00;
+            text-decoration: none;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-message">
+        
+        <h2>Welcome to Railway E-ticketing System</h2>
+        <img src="pics/bangladesh-railway.png" alt="Logo" width="50">
+        <p><span style="color: rgb(0, 0, 0); font-weight: bold">Developed by Group 8</span></p>
+    </div>
+    <br>
+    <br>
+    <br>
+    <?php
+    $l1 = 'home.php';
+    $l2 = 'login.php';
+    $l3 = 'registration.php';
+    $l4 = 'train_schedule.php';
+    $l5 = 'myacc.php';
+    $ses = false;
+    if (isset($_SESSION['phone'])) {
+        $ses = true;
+      }
+    if ($ses == false) {
+        echo '<div class="page-links-box">';
+        echo "<a href='$l1'>Home</a>";
+        echo "<a href='$l2'>Login</a>";
+        echo "<a href='$l3'>Registration</a>";
+        echo "<a href='$l4'>Train Information</a>";
+        echo '</div>';
+    }elseif($ses == true){
+        echo '<div class="page-links-box3">';
+        echo "<a href='$l1'>Home</a>";
+        echo "<a href='$l4'>Train Information</a>";
+        echo "<a href='$l5'>My Account</a>";
+        echo '</div>';
+    }
+    ?>
+</body>
+<p><br></p>
+
+  <div class="welcome-message2">
+    <img src="pics/BD.png" alt="Logo" width="50">
+    <p><span style="color: rgb(0, 0, 0); font-weight: bold">This Website is a property of the Government of Peoples Republic of Bangladesh.<br> Any forgery of the service provided by this website or copying anything of it is punishable by the law.</span></p>
+</div>
+
+<div class="developer">
+    <h1>Developers</h1>
+    <img src="pics/ahnaf.jpg" alt="Logo" width="100"><p><span style="color: rgb(0, 0, 0); font-weight: bold">Ahnaf Chowdhury</span></p>
+    <img src="pics/akib.jpg" alt="Logo" width="100"><p><span style="color: rgb(0, 0, 0); font-weight: bold">Akib Sarwar</span></p>
+    <img src="pics/alvi.jpg" alt="Logo" width="100"><p><span style="color: rgb(0, 0, 0); font-weight: bold">AK Alve</span></p>
+    <img src="pics/hanif.jpg" alt="Logo" width="100"><p><span style="color: rgb(0, 0, 0); font-weight: bold">Md. Abu Hanif Siam</span></p>
+    <img src="pics/Niloy.jpg" alt="Logo" width="100"><p><span style="color: rgb(0, 0, 0); font-weight: bold">Md. Nafis Sadique Niloy</span></p>
+</div>
+
+    
+</body>
+</html>
